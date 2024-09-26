@@ -5,10 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Group>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Image>
  */
-
-class GroupFactory extends Factory
+class ImageFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +17,7 @@ class GroupFactory extends Factory
     public function definition(): array
     {
         return [
-            
-            'name' => $this->faker->word
+            'url' => $this->faker->imageUrl(1024, 1024),
         ];
     }
 }

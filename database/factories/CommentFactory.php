@@ -5,10 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Group>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Comment>
  */
-
-class GroupFactory extends Factory
+class CommentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +17,8 @@ class GroupFactory extends Factory
     public function definition(): array
     {
         return [
-            
-            'name' => $this->faker->word
+            'body' => $this->faker->text,
+            'user_id' => rand (1,5),
         ];
     }
 }
