@@ -18,8 +18,6 @@ return new class extends Migration
 
             $table->morphs('taggable');
 
-            $table->timestamps();
-
             
 
             $table->foreign('tag_id')

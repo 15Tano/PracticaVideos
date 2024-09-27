@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
+
+    use HasFactory;
+
+    public function getCommentsCountAttribute()
+    {
+        return $this->comments()->count();
+    }
+    
     public function user()
     {
         return $this->belongsTo(User::class);

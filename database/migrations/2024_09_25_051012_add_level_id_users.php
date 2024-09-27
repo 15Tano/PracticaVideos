@@ -12,16 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-
             $table->bigInteger('level_id')->unsigned()->nullable()
                 ->after('id');
 
-                $table->foreign('level_id')
+            $table->foreign('level_id')
                 ->references('id')
                 ->on('levels')
-                ->onDelete('set null')
+                ->onDelete('cascade')
                 ->onUpdate('cascade');
-
         });
     }
 
@@ -30,6 +28,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['level_id']); // Elimina la clave foránea
+            $table->dropColumn('level_id');    // Elimina la columna level_id
+        });
     }
 };
